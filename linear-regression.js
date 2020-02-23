@@ -15,8 +15,6 @@ class LinearRegression {
       options
     );
 
-    this.m = 0;
-    this.b = 0;
     this.weights = tf.zeros([2, 1]);
   }
 
