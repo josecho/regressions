@@ -6,7 +6,9 @@ class LinearRegression {
     this.features = tf.tensor(features);
     this.labels = tf.tensor(labels);
 
-    tf.ones([this.features.shape[0], 1]);
+    this.features = tf
+      .ones([this.features.shape[0], 1])
+      .concat(this.features, 1);
 
     this.options = Object.assign(
       { learningRate: 0.1, iterations: 1000 },
