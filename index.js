@@ -13,7 +13,9 @@ let { features, labels, testFeatures, testLabels } = loadCSV("./cars.csv", {
 
 const regression = new LinearRegression(features, labels, {
   learningRate: 0.1,
-  iterations: 100
+  iterations: 100, // try value: 3 too
+  batchSize: 10
+  // stochastic Greadient Descent -> batchSize: 1
 });
 
 regression.train();
