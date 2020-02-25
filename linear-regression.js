@@ -5,6 +5,7 @@ class LinearRegression {
   constructor(features, labels, options) {
     this.features = this.processFeatures(features);
     this.labels = tf.tensor(labels);
+    this.mseHistory = [];
 
     this.options = Object.assign(
       { learningRate: 0.1, iterations: 1000 },
@@ -17,7 +18,6 @@ class LinearRegression {
   gradientDescent() {
     const currentGuesses = this.features.matMul(this.weights);
     const differences = currentGuesses.sub(this.labels);
-    this.mseHistory = [];
 
     const slopes = this.features
       .transpose()
