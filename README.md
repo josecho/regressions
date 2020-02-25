@@ -9,6 +9,8 @@ Matrix B Shape (2,3)
 
 (4,2) x (2,3) = (4,3)
 
+---
+
 Slope of MSE with respect to B
 Slope of MSE with respect to M
 
