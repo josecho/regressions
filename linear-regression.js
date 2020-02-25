@@ -11,12 +11,13 @@ class LinearRegression {
       options
     );
 
-    this.weights = tf.zeros([2, 1]);
+    this.weights = tf.zeros([this.features.shape[1], 1]);
   }
 
   gradientDescent() {
     const currentGuesses = this.features.matMul(this.weights);
     const differences = currentGuesses.sub(this.labels);
+    this.mseHistory = [];
 
     const slopes = this.features
       .transpose()
@@ -29,6 +30,7 @@ class LinearRegression {
   train() {
     for (let i = 0; i < this.options.iterations; i++) {
       this.gradientDescent();
+      this.recordMSE();
     }
   }
 
@@ -74,6 +76,18 @@ class LinearRegression {
     this.variance = variance;
 
     return features.sub(mean).div(variance.pow(0.5));
+  }
+
+  recordMSE() {
+    const mse = this.features
+      .matMul(this.weights)
+      .sub(this.labels)
+      .pow(2)
+      .sum()
+      .div(this.features.shape[0])
+      .get();
+
+    this.mseHistory.push(mse);
   }
 }
 
