@@ -1,5 +1,6 @@
 # regressions
 
+
 - Linear-regression
 
 Miles Per Gallon = m \* (Car horsepower) + b
@@ -23,9 +24,12 @@ Apply matrix multiplication
 Result:
 Slope of MSE with respect to M and B
 
+
 - Logistic-regression
 
 Given a vehicle's weight, horsepower, and engine displacement, will it PASS or NOT PASS a smog passedemissions check?
+
+
 
 - Multinominal-logistic-regression.
 
